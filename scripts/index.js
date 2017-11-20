@@ -18,6 +18,10 @@ var hotel = {
     ],
     name: "CareerDevs Innt"
 }
+function displayDetails(room) {
+     document.getElementById("price").innerHTML = hotel.rooms[room].price;
+     document.getElementById("available").innerHTML = hotel.rooms[room].available;
+}
 // console.log(document.getElementById("label").nodeName);
 
 for (var i =0; i < hotel.rooms.length; i++){
@@ -28,11 +32,14 @@ for (var i =0; i < hotel.rooms.length; i++){
     radioBtn.setAttribute("name" , "rooms");
     radioBtn.setAttribute("value" , i);
     radioBtn.setAttribute("id", "rooms" + i);
+    radioBtn.setAttribute("onclick", "displayDetails(" + i + ")");
+    // radioBtn.onclick = displayDetails(i);
     radioLbl.innerHTML = hotel.rooms[i].name;
     console.log("stop");
     
     document.getElementById("radialSection").appendChild(radioBtn);
     document.getElementById("radialSection").appendChild(radioLbl);
+
 }
 //display rooms as radio options
 // on form submission confirm rado was selected
